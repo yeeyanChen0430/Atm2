@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--CoordinatorLayout: 當某個元件的位置改變，會去調整其他元件的位置與大小-->
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <!--以下這行code是ToolBar，也就是預覽區的那個綠色區塊-->
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <!--以下這行code表示這個區塊的資料會使用content_main這個layout檔-->
+    <!--白色區域為content_main所展示的資料，格式同於Empty Activity下的唯一的那個layout xml檔-->
+    <include layout="@layout/content_main" />
+
+    <!--FloatingActionButton是一個新的Material Design元件，為右下角的那個元件-->
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        app:srcCompat="@android:drawable/ic_dialog_email" />
+
+</android.support.design.widget.CoordinatorLayout>
