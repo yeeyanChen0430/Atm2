@@ -24,6 +24,7 @@
 
     <!--以下這行code表示這個區塊的資料會使用content_main這個layout檔-->
     <!--白色區域為content_main所展示的資料，格式同於Empty Activity下的唯一的那個layout xml檔-->
+    <!--使用include將content_main layout加進來-->
     <include layout="@layout/content_main" />
 
     <!--FloatingActionButton是一個新的Material Design元件，為右下角的那個元件-->

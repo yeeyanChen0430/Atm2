@@ -66,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
         if(!logon){
             Intent intent = new Intent(this, LoginActivity.class);
 //            startActivity(intent);   //轉到LoginActivity畫面，並呼叫LoginActivity的onCreate()、onStart()、onResume()方法
+
             //startActivityForResult()用於需要「在某個Activity中得到新打開的Activity關閉後返回的資料」
             startActivityForResult(intent, REQUEST_LOGIN);  //REQUEST_LOGIN為requestCode，在此例設為100，當轉換到LoginActivity時，此值會帶給LoginActivity
             // ，當從LoginActivity回來MainActivity時，也會帶回此值
@@ -85,11 +86,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    //新的Activity 關閉後會向前面的Activity傳回數據，為了得到傳回的數據，必須在前面的Activity中重寫onActivityResult(int requestCode, int resultCode, Intent data)方法
     //當LoginActivity回到MainActivity時會自動呼叫onActivityResult()方法
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 //        super.onActivityResult(requestCode, resultCode, data);
         if(requestCode == REQUEST_LOGIN){   //如果傳回的requestCode是 REQUEST_LOGIN的值100，則代表是從LoginActivity回來
             if(resultCode != RESULT_OK){  //代表並非正常登入
+//                Toast.makeText(this,"退出程式",Toast.LENGTH_SHORT).show();
                 finish();
             }
             else{   //正常登入，則用Toast顯示登入成功訊息，並顯示從LoginActivity取得的資料
